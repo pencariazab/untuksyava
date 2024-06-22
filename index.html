@@ -1,29 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Untuk Syava/title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script type="importmap">
-    {
-      "imports": {
-        "@material/web/": "https://esm.run/@material/web/"
-      }
-    }
-  </script>
-  <script type="module" src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Pages with Material Components</title>
+    <!-- Material Components Web CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/11.0.0/material-components-web.min.css">
+    <!-- Custom CSS -->
+    <style>
+        @keyframes balloon {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        .balloon {
+            display: inline-block;
+            animation: balloon 0.6s ease-in-out;
+        }
+    </style>
 </head>
 <body>
-  <md-filled-button>CLICK HERE</md-filled-button>
+    <!-- Button to trigger dialog -->
+    <button id="myButton" class="mdc-button">CLICK HERE</button>
 
-  <!-- Dialog Material Web -->
-  <md-dialog>
-    <div slot="content">
-      <h1>Dialog Title</h1>
-      <p>This dialog will close automatically after 15 seconds.</p>
+    <!-- Dialog structure -->
+    <div class="mdc-dialog" role="alertdialog" aria-modal="true" aria-labelledby="my-dialog-title">
+        <div class="mdc-dialog__surface">
+            <h2 class="mdc-dialog__title" id="my-dialog-title">Dialog Title</h2>
+            <div class="mdc-dialog__content" id="my-dialog-content">
+                Hello! This is a dialog.
+            </div>
+            <div class="mdc-dialog__actions">
+                <button type="button" class="mdc-button mdc-dialog__button balloon" data-mdc-dialog-action="close">OK</button>
+            </div>
+        </div>
+        <div class="mdc-dialog__scrim"></div>
     </div>
-  </md-dialog>
+
+    <!-- Material Components Web JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/11.0.0/material-components-web.min.js"></script>
+    <!-- Your custom script -->
+    <script>
+        // Initialize the dialog component
+        const dialog = new mdc.dialog.MDCDialog(document.querySelector('.mdc-dialog'));
+
+        // When the button is clicked, show the dialog
+        document.getElementById('myButton').addEventListener('click', () => {
+            dialog.open();
+        });
+
+        // When the OK button inside the dialog is clicked, close the dialog and trigger balloon animation
+        const okButton = document.querySelector('.mdc-dialog__button');
+        okButton.addEventListener('click', () => {
+            dialog.close();
+            okButton.classList.add('balloon');
+            setTimeout(() => {
+                okButton.classList.remove('balloon');
+            }, 600); // Ensure this matches the animation duration (0.6s = 600ms)
+        });
+    </script>
 </body>
 </html>
