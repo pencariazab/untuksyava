@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Pages with Material Components</title>
+    <title>Untuk Syava</title>
     <!-- Material Components Web CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/11.0.0/material-components-web.min.css">
     <!-- Custom CSS -->
@@ -18,11 +18,28 @@
             display: inline-block;
             animation: balloon 0.6s ease-in-out;
         }
+
+        /* Center the button */
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+        }
+
+        /* Customize filled button style */
+        .mdc-button--raised {
+            background-color: #6200ea; /* Purple */
+            color: white;
+        }
     </style>
 </head>
 <body>
-    <!-- Button to trigger dialog -->
-    <button id="myButton" class="mdc-button">CLICK HERE</button>
+    <!-- Centered container for button -->
+    <div class="center">
+        <!-- Button to trigger dialog -->
+        <button id="myButton" class="mdc-button mdc-button--raised">CLICK HERE</button>
+    </div>
 
     <!-- Dialog structure -->
     <div class="mdc-dialog" role="alertdialog" aria-modal="true" aria-labelledby="my-dialog-title">
