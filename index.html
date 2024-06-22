@@ -1,63 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untuk Syava</title>
-    <!-- Material Components Web CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/11.0.0/material-components-web.min.css">
-    <!-- Custom CSS -->
-    <style>
-        @keyframes balloon {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0); }
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+  </script>
+  <script type="module">
+    import '@material/web/all.js';
+    import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
 
-        .balloon {
-            display: inline-block;
-            animation: balloon 0.6s ease-in-out;
-        }
-
-        /* Center the button */
-        .center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* Full viewport height */
-        }
-
-        /* Customize filled button style */
-        .mdc-button--raised {
-            background-color: #6200ea; /* Purple */
-            color: white;
-        }
-    </style>
+    document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+  </script>
 </head>
 <body>
-    <!-- Centered container for button -->
-    <div class="center">
-        <!-- Button to trigger dialog -->
-        <button id="myButton" class="mdc-button mdc-button--raised">CLICK HERE</button>
-    </div>
-
-    <!-- Dialog structure -->
-    <div class="mdc-dialog" role="alertdialog" aria-modal="true" aria-labelledby="my-dialog-title">
-        <div class="mdc-dialog__surface">
-            <h2 class="mdc-dialog__title" id="my-dialog-title">Dialog Title</h2>
-            <div class="mdc-dialog__content" id="my-dialog-content">
-                Hello! This is a dialog.
-            </div>
-            <div class="mdc-dialog__actions">
-                <button type="button" class="mdc-button mdc-dialog__button balloon" data-mdc-dialog-action="close">OK</button>
-            </div>
-        </div>
-        <div class="mdc-dialog__scrim"></div>
-    </div>
-
-    <!-- Material Components Web JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/11.0.0/material-components-web.min.js"></script>
-    <!-- Your custom script -->
-    <script src="script.js" type="text/javascript"/>
+  <md-filled-button type="button" id="btn1">CLICK HERE</md-filled-button>
 </body>
-</html>
