@@ -1,28 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Material Web on GitHub Pages</title>
-  <style>
-    :root {
-      --mdc-theme-primary: #6200ee;
-      --mdc-theme-secondary: #03dac6;
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
     }
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-  </style>
+  </script>
+  <script type="module">
+    import '@material/web/all.js';
+    import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+
+    document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+  </script>
 </head>
 <body>
-  <h1>Hello, Material Web!</h1>
-  <!-- Menggunakan tombol Material -->
-  <md-button label="Click me"></md-button>
+  <h1 class="md-typescale-display-medium">Hello Material!</h1>
+  <form>
+    <p class="md-typescale-body-medium">Check out these controls in a form!</p>
+    <md-checkbox></md-checkbox>
+    <div>
+      <md-radio name="group"></md-radio>
+      <md-radio name="group"></md-radio>
+      <md-radio name="group"></md-radio>
+    </div>
 
-  <!-- Menyertakan script utama -->
-  <script type="module">
-    import 'https://unpkg.com/@material/web/button/md-button.js?module';
-  </script>
+    <md-outlined-text-field label="Favorite color" value="Purple"></md-outlined-text-field>
+
+    <md-outlined-button type="reset">Reset</md-outlined-button>
+  </form>
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+  </style>
 </body>
-</html>
