@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material Web on GitHub Pages</title>
+  <style>
+    :root {
+      --mdc-theme-primary: #6200ee;
+      --mdc-theme-secondary: #03dac6;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hello, Material Web!</h1>
+  <!-- Menggunakan tombol Material -->
+  <md-button label="Click me"></md-button>
+
+  <!-- Menyertakan script utama -->
+  <script type="module">
+    import 'https://unpkg.com/@material/web/button/md-button.js?module';
+  </script>
+</body>
+</html>
